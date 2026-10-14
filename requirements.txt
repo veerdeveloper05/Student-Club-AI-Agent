@@ -1,0 +1,4 @@
+Flask>=2.3.0
+
+# Optional: Google Gemini API support (Install only if you want cloud LLM responses)
+# google-generativeai>=0.8.0
