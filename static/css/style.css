@@ -1,0 +1,228 @@
+﻿/* =======================================================================
+   Student Club AI Agent - Premium CSS
+   Minimal custom styles to complement Tailwind CSS
+   ======================================================================= */
+
+/* --- Keyframes --- */
+@keyframes pulseGlow {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.6); }
+  50% { opacity: 0.85; box-shadow: 0 0 0 5px rgba(52, 211, 153, 0); }
+}
+
+@keyframes sc-fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes sc-slideIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes typingBounce {
+  0%, 60%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-6px); }
+}
+
+/* --- Custom Scrollbar --- */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+/* --- Hide scrollbar for horizontal chip rails --- */
+#sampleChips::-webkit-scrollbar { display: none; }
+
+/* --- Stat card hover --- */
+.sc-stat-card:hover {
+  border-color: rgba(255, 122, 26, 0.35) !important;
+  transform: translateY(-2px);
+}
+
+/* --- Club card: handled inline for Tailwind compat --- */
+
+/* --- Mobile panel hidden state --- */
+.mobile-hidden { display: none !important; }
+
+/* --- Cat pill active state --- */
+.cat-pill.active-pill {
+  background: #FF7A1A !important;
+  color: #fff !important;
+  border-color: #FF7A1A !important;
+}
+
+/* --- Message rows --- */
+.message-row { animation: sc-fadeUp 0.4s ease both; }
+
+.user-row { flex-direction: row-reverse; }
+.user-row .message-bubble {
+  background: #0B1220!important;
+  color: #f1f5f9!important;
+  border-color: rgba(255,255,255,0.08)!important;
+  border-radius: 18px 18px 4px 18px!important;
+}
+.user-row .message-bubble .message-header { flex-direction: row-reverse; }
+.user-row .message-bubble .message-text { color: #e2e8f0; }
+
+.agent-row .message-bubble {
+  border-radius: 4px 18px 18px 18px!important;
+}
+
+/* Message header layout */
+.message-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+/* --- Typing indicator --- */
+.typing-indicator {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 0;
+}
+.typing-dot {
+  width: 7px;
+  height: 7px;
+  background: #FF7A1A;
+  border-radius: 50%;
+  animation: typingBounce 1.2s ease infinite;
+  opacity: 0.8;
+}
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+/* --- Follow-up buttons --- */
+.follow-up-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+.follow-up-btn {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 99px;
+  background: rgba(255, 122, 26, 0.09);
+  color: #c2410c;
+  border: 1px solid rgba(255, 122, 26, 0.25);
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+.follow-up-btn:hover {
+  background: rgba(255, 122, 26, 0.18);
+  border-color: rgba(255, 122, 26, 0.5);
+  transform: translateY(-1px);
+}
+
+/* --- Modal open state --- */
+#clubDetailModal.open {
+  opacity: 1 !important;
+  pointer-events: all !important;
+  background: rgba(0, 0, 0, 0.55) !important;
+  backdrop-filter: blur(4px) !important;
+}
+#clubDetailModal.open .modal-dialog {
+  transform: scale(1) !important;
+}
+
+/* --- Modal activity list items --- */
+#modalClubActivities li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  color: #475569;
+  padding: 6px 0;
+  border-bottom: 1px solid #f1f5f9;
+  line-height: 1.5;
+}
+#modalClubActivities li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: #FF7A1A;
+  border-radius: 50%;
+  margin-top: 6px;
+  shrink: 0;
+  flex-shrink: 0;
+}
+
+/* --- Modal event items --- */
+.modal-event-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 14px;
+}
+.modal-event-card h5 {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0B1220;
+  margin-bottom: 4px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.modal-event-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 11px;
+  color: #64748b;
+  margin-bottom: 6px;
+}
+.modal-event-desc {
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+/* --- Message text formatting --- */
+.message-text p { margin-bottom: 6px; }
+.message-text p:last-child { margin-bottom: 0; }
+.message-text ul { list-style: disc; padding-left: 18px; margin-bottom: 6px; }
+.message-text li { margin-bottom: 3px; }
+.message-text strong { font-weight: 700; color: #0B1220; }
+.user-row .message-text strong { color: #fff; }
+.message-text code {
+  background: rgba(0,0,0,0.07);
+  border-radius: 4px;
+  padding: 1px 5px;
+  font-family: monospace;
+  font-size: 12px;
+}
+.message-text a { color: #FF7A1A; text-decoration: underline; }
+.message-text em { font-style: italic; }
+
+/* --- Chat panel height fix for sidebar sticking --- */
+@media (min-width: 1024px) {
+  .clubs-panel {
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    padding-right: 2px;
+  }
+}
+
+/* --- Mobile view switching --- */
+@media (max-width: 1023px) {
+  #chatViewport { height: 72vh !important; min-height: 480px !important; }
+}
+
+/* --- Responsive adjustments for hero --- */
+@media (max-width: 640px) {
+  .sc-stat-card { padding: 10px 6px; }
+}
+
+/* --- General link/button resets --- */
+a { text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+textarea { font-family: inherit; }
+
+/* Smooth transitions for all interactive elements */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
